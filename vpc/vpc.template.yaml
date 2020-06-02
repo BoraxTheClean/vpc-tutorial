@@ -1,0 +1,47 @@
+---
+AWSTemplateFormatVersion: "2010-09-09"
+
+Description: >
+  Deploys a VPC.
+
+Parameters:
+  CidrBlock:
+    Type: String
+    Description: The private CIDR block to attach to your VPC.
+    Default: 10.0.0.0/16
+
+Resources:
+  VPC:
+    Type: AWS::EC2::VPC
+    Properties:
+      CidrBlock: !Ref CidrBlock
+      Tags:
+        - Key: Name
+          Value: MyVPC
+
+  IGW:
+    Type: AWS::EC2::InternetGateway
+
+  IGWAttachment:
+    Type: AWS::EC2::VPCGatewayAttachment
+    Properties:
+      InternetGatewayId: !Ref IGW
+      VpcId: !Ref VPC
+
+  SubnetOne:
+    Type: AWS::Cloudformation:Stack
+    Properties:
+      Parameters:
+        VPC: !Ref VPC
+        IGW: !Ref IGW
+        AZ: !Select
+          - 0
+          - !Ref GetAZs
+            - !Ref 'AWS::Region'
+        CidrBlock: !Select
+          - 0
+          - !Cidr
+            - !Ref CidrBlock
+            - 1
+            - 8
+      TemplateURL: https://owen-public-production-bucket.s3.amazonaws.com/vpc-demo/vpc/subnet/subnet.template.yaml

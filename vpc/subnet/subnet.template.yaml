@@ -1,0 +1,40 @@
+---
+AWSTemplateFormatVersion: "2010-09-09"
+
+Description: >
+  Deploys a subnet.
+
+Parameters:
+  VPC:
+    Type: AWS::EC2::VPC:Id
+
+  CidrBlock:
+    Type: String
+
+  AZ:
+    Type: AWS::EC2::AvailabilityZone::Name
+
+  IGW:
+    Type: String
+
+Resources:
+  Subnet:
+    Type: AWS::EC2::Subnet
+    Properties:
+      AvailabilityZone: !Ref AZ
+      CidrBlock: !Ref CidrBlock
+      MapPublicIpOnLaunch: True
+      VpcId: !Ref VPC
+
+  RouteTable:
+    Type: AWS::Cloudformation:Stack
+    Properties:
+      Parameters:
+        VPC: !Ref VPC
+        IGW: !Ref IGW
+        Subnet: !Ref Subnet
+      TemplateURL: https://owen-public-production-bucket.s3.amazonaws.com/vpc-demo/vpc/subnet/route-table/route-table.template.yaml
+
+Outputs:
+  Subnet:
+    Value: !Ref Subnet
