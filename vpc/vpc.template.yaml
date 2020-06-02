@@ -36,11 +36,11 @@ Resources:
         IGW: !Ref IGW
         AZ: !Select
           - 0
-          - !GetAZs
+          - [ !GetAZs ]
         CidrBlock: !Select
           - 0
-          - Fn::Cidr
-            - !CidrBlock
+          - !Ref Cidr
+            - !Ref CidrBlock
             - 1
             - 8
       TemplateURL: https://owen-public-production-bucket.s3.amazonaws.com/vpc-demo/vpc/subnet/subnet.template.yaml
