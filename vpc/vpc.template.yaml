@@ -36,7 +36,7 @@ Resources:
         IGW: !Ref IGW
         AZ: !Select
           - 0
-          - !Ref GetAZs
+          - [ !Ref GetAZs ]
         CidrBlock: !Select
           - 0
           - Fn::Cidr:
