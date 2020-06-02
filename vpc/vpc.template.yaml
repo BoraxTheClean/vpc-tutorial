@@ -37,7 +37,6 @@ Resources:
         AZ: !Select
           - 0
           - !Ref GetAZs
-            - !Ref 'AWS::Region'
         CidrBlock: !Select
           - 0
           - !Cidr
