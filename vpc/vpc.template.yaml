@@ -39,7 +39,7 @@ Resources:
           - !GetAZs
         CidrBlock: !Select
           - 0
-          - !Ref Cidr
+          - !Cidr
             - !Ref CidrBlock
             - 8
             - 8
