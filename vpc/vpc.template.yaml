@@ -39,7 +39,7 @@ Resources:
           - !Ref GetAZs
         CidrBlock: !Select
           - 0
-          - !Cidr
+          - Fn::Cidr:
             - !Ref CidrBlock
             - 1
             - 8
