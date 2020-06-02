@@ -29,7 +29,7 @@ Resources:
       VpcId: !Ref VPC
 
   SubnetOne:
-    Type: AWS::Cloudformation::Stack
+    Type: AWS::CloudFormation::Stack
     Properties:
       Parameters:
         VPC: !Ref VPC

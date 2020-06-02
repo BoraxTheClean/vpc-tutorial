@@ -27,7 +27,7 @@ Resources:
       VpcId: !Ref VPC
 
   RouteTable:
-    Type: AWS::Cloudformation::Stack
+    Type: AWS::CloudFormation::Stack
     Properties:
       Parameters:
         VPC: !Ref VPC
