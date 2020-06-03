@@ -9,7 +9,7 @@ Parameters:
     Type: String
 
   VPC:
-    Type: AWS::EC2::VPC:Id
+    Type: AWS::EC2::VPC::Id
 
   IGW:
     Type: String
