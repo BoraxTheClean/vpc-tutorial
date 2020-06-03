@@ -44,3 +44,38 @@ Resources:
             - 8
             - 8
       TemplateURL: https://owen-public-production-bucket.s3.amazonaws.com/vpc-demo/vpc/subnet/subnet.template.yaml
+
+
+  SubnetTwo:
+    Type: AWS::CloudFormation::Stack
+    Properties:
+      Parameters:
+        VPC: !Ref VPC
+        IGW: !Ref IGW
+        AZ: !Select
+          - 1
+          - !GetAZs
+        CidrBlock: !Select
+          - 1
+          - !Cidr
+            - !Ref CidrBlock
+            - 8
+            - 8
+      TemplateURL: https://owen-public-production-bucket.s3.amazonaws.com/vpc-demo/vpc/subnet/subnet.template.yaml
+
+  SubnetThree:
+    Type: AWS::CloudFormation::Stack
+    Properties:
+      Parameters:
+        VPC: !Ref VPC
+        IGW: !Ref IGW
+        AZ: !Select
+          - 2
+          - !GetAZs
+        CidrBlock: !Select
+          - 2
+          - !Cidr
+            - !Ref CidrBlock
+            - 8
+            - 8
+      TemplateURL: https://owen-public-production-bucket.s3.amazonaws.com/vpc-demo/vpc/subnet/subnet.template.yaml
