@@ -6,7 +6,7 @@ Description: >
 
 Parameters:
   VPC:
-    Type: AWS::EC2::VPC:Id
+    Type: AWS::EC2::VPC::Id
 
   CidrBlock:
     Type: String
