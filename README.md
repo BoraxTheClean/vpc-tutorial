@@ -1,5 +1,7 @@
 # vpc-tutorial
 
+[One Click Deploy Link](https://us-east-1.console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/quickcreate?templateURL=https://owen-public-production-bucket.s3.amazonaws.com/vpc-demo/vpc/vpc.template.yaml)
+
 This is a tutorial of how to build a VPC in AWS.
 
 The following is an overview of the components and sub-components of a VPC. We will be using Cloudformation to illustrate and deploy.
@@ -8,12 +10,21 @@ The following is an overview of the components and sub-components of a VPC. We w
 
 _Amazon Virtual Private Cloud (Amazon VPC) lets you provision a logically isolated section of the AWS Cloud where you can launch AWS resources in a virtual network that you define._
 
-### High Level VPC Drill-Down
+### High Level VPC Overview
+
+```bash
+vpc
+├── subnet
+│   ├── route-table
+│   │   └── route-table.template.yaml
+│   └── subnet.template.yaml
+└── vpc.template.yaml
+```
 
   - VPCs have subnets.
   - Subnets have route tables.
   - Route tables have routes.
-  - Routes have destinations and paths.
+  - Routes have destinations and targets.
 
 ## VPC Code
 
@@ -153,3 +164,31 @@ Route tables let your computers ask for directions:
 
 _How do I get to the internet (69.254.69.254)?_
 _Take the IGW._
+
+
+When looking at your newly made route table, you'll see a default route:
+
+```bash
+$ aws ec2 describe-route-tables
+```
+
+```json
+...
+{
+    "DestinationCidrBlock": "10.0.0.0/16",
+    "GatewayId": "local",
+    "Origin": "CreateRouteTable",
+    "State": "active"
+}
+...
+```
+VPC automatically makes a route for you for intra-vpc routing, so you don't need to make routes to link your subnets together.
+
+## More to Come
+
+  - Nat gateways
+  - VPC Endpoints
+  - VPC Peering
+  - Private routing
+  - VPC hosted Lambda Functions
+  - Internal only Resources
