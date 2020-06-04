@@ -1,10 +1,11 @@
-# vpc-tutorial
-
-[One Click Deploy Link](https://us-east-1.console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/quickcreate?templateURL=https://owen-public-production-bucket.s3.amazonaws.com/vpc-demo/vpc/vpc.template.yaml)
+# Vpc Tutorial
 
 This is a tutorial of how to build a VPC in AWS.
 
 The following is an overview of the components and sub-components of a VPC. We will be using Cloudformation to illustrate and deploy.
+
+[One click deploy link, no AWS charges will be incurred.](https://us-east-1.console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/quickcreate?templateURL=https://owen-public-production-bucket.s3.amazonaws.com/vpc-demo/vpc/vpc.template.yaml)
+
 
 ## What is a VPC?
 
@@ -40,7 +41,6 @@ VPC:
     Tags:
       - Key: Name
         Value: MyVPC
-
 ```
 
 Our VPC will have internet access. So we need an InternetGateway (IGW) and we associate it to our VPC. Later, we will use this IGW to give resources in our VPC access to the internet.
@@ -91,7 +91,6 @@ Now getting into the Subnet stack code:
 
 Just like we said above, a Subnet lives in a single AZ, has a CidrBlock associated with it, and is attached to a VPC.
 
-
 ```yaml
 Subnet:
   Type: AWS::EC2::Subnet
@@ -101,10 +100,12 @@ Subnet:
     MapPublicIpOnLaunch: True
     VpcId: !Ref VPC
 ```
+
+### Public Subnets
+
 You'll also notice the parameter `MapPublicIpOnLaunch: True`. Setting this parameter to true, will give every resource deployed in this subnet a Public IP address. This will let it access the internet and be accessed from the internet. We can configure a Security Group to limit access to our public resources.
 
-This subnet is commonly called a Public Subnet, because all resources in it receive their own Public IP. Private Subnets, on the other hand, are subnets in which resources do not have public IP addresses.
-
+This subnet is commonly called a _Public Subnet_, because all resources in it receive their own Public IP. _Private Subnets_, on the other hand, are subnets in which resources do not have public IP addresses.
 
 ## Route Table Code
 
