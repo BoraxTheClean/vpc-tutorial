@@ -1,6 +1,6 @@
 # VPC Tutorial
 
-![vpc-diagram](https://raw.githubusercontent.com/BoraxTheClean/vpc-tutorial/VPC%20Tutorial.png)
+![vpc-diagram](https://raw.githubusercontent.com/BoraxTheClean/vpc-tutorial/VPCTutorial.png)
 
 
 This is a tutorial of how to build a VPC in AWS.
