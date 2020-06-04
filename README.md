@@ -168,6 +168,7 @@ _Take the IGW._
 ```bash
 $ aws ec2 describe-route-tables
 ```
+
 VPC automatically makes a route for you for intra-vpc routing, so you don't need to make routes to link your subnets together.
 
 ```json
@@ -179,7 +180,6 @@ VPC automatically makes a route for you for intra-vpc routing, so you don't need
 }
 ```
 
-
 ## More to Come
 
   - Nat gateways
@@ -188,3 +188,11 @@ VPC automatically makes a route for you for intra-vpc routing, so you don't need
   - Private routing
   - VPC hosted Lambda Functions
   - Internal only Resources
+
+## Deploy and Enjoy
+
+[Have fun coding! And be sure to follow me on GumRoad for new courses and updates!](https://store.owen.dev)
+
+[Find me on Twitter.](https://twitter.com/AWSOwen)
+
+[Shoot me an email.](mailto:owen@owen.dev)
