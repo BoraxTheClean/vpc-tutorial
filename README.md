@@ -1,5 +1,8 @@
 # VPC Tutorial
 
+![vpc-diagram](https://raw.githubusercontent.com/BoraxTheClean/vpc-tutorial/VPC%20Tutorial.png)
+
+
 This is a tutorial of how to build a VPC in AWS.
 
 The following is an overview of the components and sub-components of a VPC. We will be using Cloudformation to illustrate and deploy.
