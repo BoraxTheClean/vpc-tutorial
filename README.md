@@ -165,24 +165,20 @@ Route tables let your computers ask for directions:
 _How do I get to the internet (69.254.69.254)?_
 _Take the IGW._
 
-
-When looking at your newly made route table, you'll see a default route:
-
 ```bash
 $ aws ec2 describe-route-tables
 ```
+VPC automatically makes a route for you for intra-vpc routing, so you don't need to make routes to link your subnets together.
 
 ```json
-...
 {
     "DestinationCidrBlock": "10.0.0.0/16",
     "GatewayId": "local",
     "Origin": "CreateRouteTable",
     "State": "active"
 }
-...
 ```
-VPC automatically makes a route for you for intra-vpc routing, so you don't need to make routes to link your subnets together.
+
 
 ## More to Come
 
