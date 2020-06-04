@@ -1,4 +1,4 @@
-# Vpc Tutorial
+# VPC Tutorial
 
 This is a tutorial of how to build a VPC in AWS.
 
