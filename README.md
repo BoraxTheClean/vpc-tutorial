@@ -1,7 +1,7 @@
 # VPC Tutorial
 
 ![vpc-diagram](https://raw.githubusercontent.com/BoraxTheClean/vpc-tutorial/master/VPCTutorial.png)
-
+![CI Status](https://github.com/BoraxTheClean/vpc-tutorial/workflows/Make%20template%20public/badge.svg)
 
 This is a tutorial of how to build a VPC in AWS.
 
@@ -151,6 +151,8 @@ RouteTableAssociation:
 
 Once we have associated our Route Table to our subnet, we add a route to the internet.
 
+## Route Code
+
 Routes have:
   - A Destination: Where you are trying to go.
   - A Target: How you get there.
@@ -195,8 +197,4 @@ VPC automatically makes a route for you for intra-vpc routing, so you don't need
 
 ## Deploy and Enjoy
 
-[Have fun coding! And be sure to follow me on GumRoad for new courses and updates!](https://store.owen.dev)
-
-[Find me on Twitter.](https://twitter.com/AWSOwen)
-
-[Shoot me an email.](mailto:owen@owen.dev)
+[Have fun coding! Here are my links if you want to follow me on the internet!](https://owen.dev)
