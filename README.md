@@ -1,7 +1,7 @@
 # VPC Tutorial
 
 ![vpc-diagram](https://raw.githubusercontent.com/BoraxTheClean/vpc-tutorial/master/VPCTutorial.png)
-![CI Status](https://github.com/BoraxTheClean/vpc-tutorial/workflows/Make%20template%20public/badge.svg)
+![CI Status](https://github.com/BoraxTheClean/vpc-tutorial/workflows/Cloudformation%20CI/badge.svg)
 
 This is a tutorial of how to build a VPC in AWS.
 
