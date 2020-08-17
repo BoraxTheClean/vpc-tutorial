@@ -1,4 +1,4 @@
-name: Make template public
+name: Cloudformation CI
 
 on:
   push:
@@ -16,6 +16,11 @@ jobs:
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: us-east-1
+    - name: Deploy to AWS CloudFormation
+      uses: aws-actions/aws-cloudformation-github-deploy@v1
+      with:
+        name: vpc-demo
+        template: vpc/vpc.template.yaml
     - uses: jakejarvis/s3-sync-action@master
       with:
         args: --acl public-read --follow-symlinks
@@ -26,8 +31,3 @@ jobs:
         AWS_REGION: 'us-east-1'
         SRC_DIR: vpc
         DEST_DIR: 'vpc-demo'
-    - name: Deploy to AWS CloudFormation
-      uses: aws-actions/aws-cloudformation-github-deploy@v1
-      with:
-        name: vpc-demo
-        template: vpc/vpc.template.yaml
